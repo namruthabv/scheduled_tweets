@@ -1,0 +1,17 @@
+<div class="container md-3">
+    <%= form_with model: @user, url: password_reset_edit_path(token: params[:token]) do |form| %>
+        <h1> Reset the Password </h1>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <%= form.password_field :password, class: "form-control" %>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password Confirmation</label>
+            <%= form.password_field :password_confirmation, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= form.submit "Reset Password", class: "btn btn-primary" %>
+        </div>
+    <% end %>
+</div>
