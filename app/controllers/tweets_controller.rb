@@ -11,12 +11,12 @@ class TweetsController < ApplicationController
     end
 
     def create
-        @tweets = Current.user.tweet.new(tweet_params)
-        if @tweets.save
+        @tweet = Current.user.tweet.new(tweet_params)
+        if @tweet.save
             flash[:success] = "Tweet is scheduled successfully!"
             redirect_to tweets_path
         else 
-            @tweets.errors.full_messages.each do |msg|
+            @tweet.errors.full_messages.each do |msg|
                 flash[:danger] ||= []
                 flash[:danger] << msg 
             end
